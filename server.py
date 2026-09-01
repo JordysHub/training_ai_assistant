@@ -108,7 +108,11 @@ def recent_checkins(n: int = 14) -> list[dict]:
 
 @mcp.custom_route("/health", methods=["GET"])
 async def health(request):
-    return JSONResponse({"status": "ok"})
+    return JSONResponse({
+        "status": "ok",
+        "secret_len": len(SECRET),
+        "data_dir": str(DATA),
+    })
 
 
 if __name__ == "__main__":
