@@ -3,7 +3,7 @@ from fastmcp import Client
 
 
 async def main():
-    async with Client("http://localhost:8000/mcp") as c:
+    async with Client("http://localhost:8000/dev/mcp") as c:
         print([t.name for t in await c.list_tools()])
         print(await c.call_tool("get_athlete_profile", {}))
         print(await c.call_tool("log_checkin", {
